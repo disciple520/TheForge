@@ -8,12 +8,12 @@ class GoogleCloudService implements CloudService {
     }
 
     @Override
-    void upload() {
+    void upload(File file) {
 
     }
 
     @Override
-    void download(){
+    void download(File file){
 
     }
 

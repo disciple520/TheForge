@@ -25,26 +25,9 @@ class DropboxCloudService implements CloudService {
 
     }
 
-	/*
-	@Override
-
-	File getFileToUpload() {
-
-
-		
-		//Bug with Eclipse - commented out code can replace following two lines in other IDEs
-		def inputFileName //= System.console().readLine()
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
-		inputFileName = br.readLine()
-		
-		new File(inputFileName)
-	}
-
-	*/
-
     @Override
-    void upload() {
-/*
+    void upload(File file) {
+
         def remoteFileName = REMOTE_DIR + file.name
         def inputStream = new FileInputStream(file.name)
 
@@ -54,12 +37,19 @@ class DropboxCloudService implements CloudService {
 		} finally {
 			inputStream.close()
 		}
-		*/
+
     }
 
     @Override
-    void download() {
+    void download(File file) {
 
+        FileOutputStream outputStream = new FileOutputStream(file.name);
+        try {
+            DbxEntry.File downloadedFile = client.getFile("/" + file.name, null,
+                    outputStream);
+        } finally {
+            outputStream.close();
+        }
     }
     
     static def retrieveAccessToken() {

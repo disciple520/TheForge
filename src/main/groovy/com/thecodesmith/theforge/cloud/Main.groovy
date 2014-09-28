@@ -4,19 +4,21 @@ class Main {
 
     static void main(args) {
 
-        
-
-
-        println 'Hello from Main.groovy'
-        CloudService cloudService = new DropboxCloudService()
-        cloudService.authenticate()
-        InputAccepter inputAccepter = new InputAccepter()
-        println 'Now were in main at the spot where we start to actually do stuff'
-        println 'flag: ' + inputAccepter.flag
-        println 'filename:' + inputAccepter.filename
-        //File file = cloudService.getFileToUpload()
-        //cloudService.upload(file)
+            CloudService cloudService = new DropboxCloudService()
+            cloudService.authenticate()
+            InputAccepter inputAccepter = new InputAccepter()
+            println 'flag: ' + inputAccepter.flag
+            println 'filename:' + inputAccepter.filename
+            def file = new File(inputAccepter.filename)
+            switch (inputAccepter.flag) {
+                case '-d':
+                    cloudService.download(file)
+                    break
+                case '-u':
+                    cloudService.upload(file)
+                    break
+                default:
+                    println 'Invalid command line flag'
+            }
+        }
     }
-
-
-}
