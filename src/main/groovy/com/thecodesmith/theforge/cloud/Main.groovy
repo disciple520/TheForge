@@ -15,6 +15,9 @@ class Main {
                 case '-u':
                     cloudService.upload(file)
                     break
+                case '-l':
+                    cloudService.listFiles()
+                    break
                 default:
                     println 'Invalid command line flag'
             }

@@ -52,7 +52,13 @@ class DropboxCloudService implements CloudService {
             outputStream.close();
         }
     }
-    
+
+    static void listFiles(){
+        println 'Hello from listFiles()!'
+
+
+    }
+
     static def retrieveAccessToken() {
 
         def settingsFile = new File(SETTINGS_FILE_NAME)
