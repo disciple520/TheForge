@@ -7,8 +7,6 @@ class Main {
             CloudService cloudService = new DropboxCloudService()
             cloudService.authenticate()
             InputAccepter inputAccepter = new InputAccepter()
-            println 'flag: ' + inputAccepter.flag
-            println 'filename:' + inputAccepter.filename
             def file = new File(inputAccepter.filename)
             switch (inputAccepter.flag) {
                 case '-d':

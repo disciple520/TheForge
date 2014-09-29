@@ -27,13 +27,13 @@ class DropboxCloudService implements CloudService {
 
     @Override
     void upload(File file) {
-
+        println 'Uploading ' + file.name
         def remoteFileName = REMOTE_DIR + file.name
         def inputStream = new FileInputStream(file.name)
 
         try {
 			DbxEntry.File uploadedFile = client.uploadFile(remoteFileName, DbxWriteMode.add(), file.length(), inputStream)
-			println "Uploaded: " + uploadedFile.toString()
+			println "Upload Successful"
 		} finally {
 			inputStream.close()
 		}
@@ -42,11 +42,12 @@ class DropboxCloudService implements CloudService {
 
     @Override
     void download(File file) {
-
+        println 'Downloading ' + file.name
         FileOutputStream outputStream = new FileOutputStream(file.name);
         try {
             DbxEntry.File downloadedFile = client.getFile("/" + file.name, null,
                     outputStream);
+            println "Download Successful"
         } finally {
             outputStream.close();
         }

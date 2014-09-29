@@ -10,16 +10,11 @@ class InputAccepter {
 
     InputAccepter() {
 
-        println 'Enter command: (e.g. -u ATestFile.txt or -d AnotherTestFile.txt)'
-        println 'Hello from InputAccepter default constructor - lets hardcode in some input'
-
-        //Check out Brian's link
-        //BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
-        //userCommand = br.readLine()
-
-        //code to parse command...we'll hardcode in something for now
-        this.flag = '-d'
-        this.filename = 'DownloadThis.txt'
+        println 'Enter command: (e.g. -u test.txt or -d downloadthis.txt)'
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
+        String[] userCommand = br.readLine().split(" ")
+        flag = userCommand[0]
+        filename = userCommand[1]
     }
 
 }
