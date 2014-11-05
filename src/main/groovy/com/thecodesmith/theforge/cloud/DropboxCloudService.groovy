@@ -45,8 +45,7 @@ class DropboxCloudService implements CloudService {
         println 'Downloading ' + file.name
         FileOutputStream outputStream = new FileOutputStream(file.name);
         try {
-            DbxEntry.File downloadedFile = client.getFile("/" + file.name, null,
-                    outputStream);
+            DbxEntry.File downloadedFile = client.getFile("/" + file.name, null, outputStream);
             println "Download Successful"
         } finally {
             outputStream.close();
@@ -75,14 +74,12 @@ class DropboxCloudService implements CloudService {
 		DbxRequestConfig config = new DbxRequestConfig("JavaTutorial/1.0", Locale.getDefault().toString())
 		DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo)
 
-		//Have the user sign in and authorize the app
 		String authorizeUrl = webAuth.start()
 		println "1. Go to: " + authorizeUrl
 		println "2. Click \"Allow\" (you might have to log in first)"
         println '3. Paste authorization code below:'
 
-		//Bug with Eclipse - commented out code can replace following two lines in other IDEs
-        def authorizationCode //= System.console().readLine()
+        def authorizationCode
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
 		authorizationCode = br.readLine()
 		

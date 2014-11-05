@@ -6,20 +6,24 @@ class Main {
 
             CloudService cloudService = new DropboxCloudService()
             cloudService.authenticate()
-            InputAccepter inputAccepter = new InputAccepter()
-            def file = new File(inputAccepter.filename)
-            switch (inputAccepter.flag) {
-                case '-d':
-                    cloudService.download(file)
-                    break
-                case '-u':
-                    cloudService.upload(file)
-                    break
-                case '-l':
-                    cloudService.listFiles()
-                    break
-                default:
-                    println 'Invalid command line flag'
+            while(true){
+                InputAccepter inputAccepter = new InputAccepter()
+                def file = new File(inputAccepter.filename)
+                switch (inputAccepter.flag) {
+                    case '-d':
+                        cloudService.download(file)
+                        break
+                    case '-u':
+                        cloudService.upload(file)
+                        break
+                    case '-l':
+                        cloudService.listFiles()
+                        break
+                    case 'q':
+                        System.exit(0)
+                    default:
+                        println 'Invalid command line flag'
+                }
             }
         }
     }
