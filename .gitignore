@@ -7,3 +7,5 @@ out/
 *.iws
 
 gradle.properties
+
+*.DS_Store
