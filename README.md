@@ -1,24 +1,3 @@
-Groovy Application project template
-------------------------------------
+The Forge - CloudManager
 
-You have just created a basic Groovy application. There is a standard project
-structure for source code and tests.
-
-In this project you get:
-
-* A Gradle build file
-* A standard project structure:
-
-    <proj>
-      |
-      +- src
-          |
-          +- main
-          |     |
-          |     +- groovy
-          |
-          +- test
-          |   |
-          |   +- groovy
-
-          |
+I worked on this with Brian 'thecodesmith' Stewart. The code that I wrote consists of the five .groovy files in the src folder. I was experimenting with the Dropbox API. I took some screenshots of the application running in my IDE.
